@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="index.css" rel="stylesheet" />
+    <title>марс</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="container"></div>
+      <div class="content_container">
+        <div class="hed">
+          <header>
+            <img src="/media/Mars.png" />
+            <nav class="menu">
+              <ul>
+                <li class="nav_item"><a href="#"> О МАРСЕ</a></li>
+                <li class="nav_item"><a href="#"> ПРОЦЕСС</a></li>
+                <li class="nav_item"><a href="#"> БИЛЕТЫ</a></li>
+                <li class="nav_item"><a href="#"> НОВОСТИ</a></li>
+                <li class="nav_item"><a href="#"> КОНТАКТЫ</a></li>
+              </ul>
+              <button><a href="secondPage.html">КУПИТЬ БИЛЕТЫ</a></button>
+            </nav>
+          </header>
+        </div>
+
+        <section class="mars">
+          <video
+            src="media/video.mp4"
+            autoplay
+            playsinline
+            muted
+            loop
+            controls="true"
+            class="clipped-video"
+          ></video>
+
+          <svg height="100%" width="100%">
+            <clipPath id="text-overlay">
+              <text id="title" x="0" y="0" dy="0.750em">марс</text>
+            </clipPath>
+          </svg>
+        </section>
+        <div class="line">
+          <div class="line-first"></div>
+          <div class="line-second"></div>
+          <div class="line-therd"></div>
+        </div>
+        <span>ТОЧКА НАЗНАЧЕНИЯ:</span>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

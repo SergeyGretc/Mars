@@ -8,6 +8,10 @@
 }
 html {
   box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 *,
 *::before,
@@ -20,74 +24,22 @@ html {
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
 }
-
-section {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+.app {
+  height: 100%;
+  width: 100%;
+  background-image: url("/media/space.jpg");
   animation: bgf 2s;
-  background-image: url("/media/imagee.png");
   background-position: 50% 50%;
-  background-size: 120%, 120%;
-}
-@keyframes bgf {
-  0% {
-    background-image: url("/media/image.png");
-    background-position: 0% 50%;
-    background-size: 120%, 120%;
-  }
-
-  100% {
-    background-image: url("/media/imagee.png");
-    background-position: 50% 50%;
-    background-size: 120%, 120%;
-  }
+  transition-duration: 1s;
 }
 
-.pre_section {
-  opacity: 0;
-  animation: bgps 2s;
-  animation-delay: 2s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes bgps {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-section video {
-  position: absolute;
-  top: 255px;
-  left: 123px;
-  width: 100%;
+.content_container {
+  position: relative;
+  max-width: 1400px;
   height: 100%;
-  object-fit: cover;
-}
-section svg {
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-  font-size: 715px;
-  font-family: "Bebas Neue";
-  font-weight: 700;
-  line-height: 715px;
-  letter-spacing: -0.015em;
-}
-svg rect {
-  fill: white;
-  mask: url("#mask");
 }
 .container {
   position: absolute;
@@ -98,21 +50,264 @@ svg rect {
   animation: bg 10s infinite linear;
   animation-delay: 2s;
 }
-
-h2 {
+section {
   position: absolute;
   top: 255px;
   left: 123px;
   width: 100%;
   height: 100%;
-  background-image: url("/media/space.jpg");
+}
+@keyframes bgf {
+  0% {
+    background-image: url("/media/space.jpg");
+    background-position: 35% 50%;
+  }
+
+  100% {
+    background-image: url("/media/space.jpg");
+    background-position: 50% 50%;
+  }
+}
+
+section video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+text {
   font-size: 715px;
-  color: #fff;
   font-family: "Bebas Neue";
   font-weight: 700;
   line-height: 715px;
   letter-spacing: -0.015em;
-  mix-blend-mode: multiply;
+  opacity: 0;
+  animation-name: text;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+section svg {
+  position: absolute;
+  top: 0;
+}
+
+.clipped-video {
+  clip-path: url(#text-overlay);
+  -webkit-clip-path: url(#text-overlay);
+}
+
+@media (max-width: 1400px) {
+  .app .content_container .line {
+    height: 440px;
+  }
+  .app .content_container section svg clipPath text {
+    font-size: 500px;
+    line-height: 500px;
+  }
+  .app .content_container .line .line-therd {
+    top: 430px;
+  }
+  .app .content_container span {
+    font-size: 30px;
+  }
+  .app .content_container .hed header {
+    max-width: 825px;
+  }
+  .app .content_container .hed header img {
+    max-width: 60px;
+    max-height: 32px;
+  }
+  .app .content_container .hed header .menu {
+    max-width: 600px;
+  }
+  .app .content_container .hed header ul {
+    max-width: 450px;
+  }
+  .app .content_container .hed header ul li a {
+    font-size: 13px;
+  }
+  .app .content_container .hed header button {
+    font-size: 13px;
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 1060px) {
+  section {
+    top: 150px;
+    left: 80px;
+  }
+
+  .app .content_container section svg clipPath text {
+    font-size: 350px;
+    line-height: 350px;
+  }
+  .app .content_container {
+    margin: auto;
+  }
+  .app .content_container .line {
+    height: 300px;
+    top: 120px;
+    left: 80px;
+  }
+  .app .content_container .line .line-therd {
+    top: 290px;
+  }
+  .app .content_container span {
+    font-size: 15px;
+    left: 95px;
+    top: 115px;
+  }
+  .app .content_container .hed header {
+    max-width: 575px;
+
+    left: 80px;
+  }
+  .app .content_container .hed header img {
+    max-width: 40px;
+    max-height: 24px;
+  }
+  .app .content_container .hed header .menu {
+    max-width: 480px;
+  }
+  .app .content_container .hed header ul {
+    max-width: 400px;
+  }
+  .app .content_container .hed header ul li a {
+    font-size: 10px;
+  }
+  .app .content_container .hed header button {
+    font-size: 10px;
+    max-width: 65px;
+  }
+}
+
+@media (max-width: 700px) {
+  section {
+    top: 100px;
+    left: 50px;
+  }
+
+  .app .content_container section svg clipPath text {
+    font-size: 250px;
+    line-height: 250px;
+  }
+  .app .content_container {
+    margin: auto;
+  }
+  .app .content_container .line {
+    height: 195px;
+    top: 90px;
+    left: 50px;
+  }
+  .app .content_container .line .line-therd {
+    top: 195px;
+    width: 7px;
+    height: 7px;
+    left: -1px;
+  }
+  .app .content_container .line .line-first {
+    width: 4px;
+    height: 4px;
+    top: -1px;
+    left: 1px;
+  }
+  .app .content_container .line .line-second {
+    width: 1px;
+  }
+  .app .content_container span {
+    font-size: 11px;
+    left: 60px;
+    top: 75px;
+  }
+  .app .content_container .hed header {
+    max-width: 400px;
+
+    left: 50px;
+  }
+  .app .content_container .hed header img {
+    max-width: 30px;
+  }
+  .app .content_container .hed header .menu {
+    max-width: 350px;
+  }
+  .app .content_container .hed header ul {
+    max-width: 280px;
+  }
+  .app .content_container .hed header ul li a {
+    font-size: 8px;
+  }
+  .app .content_container .hed header button {
+    font-size: 8px;
+    max-width: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    top: 80px;
+    left: 40px;
+  }
+
+  .app .content_container section svg clipPath text {
+    font-size: 180px;
+    line-height: 180px;
+  }
+  .app .content_container {
+    margin: auto;
+  }
+  .app .content_container .line {
+    height: 140px;
+    top: 75px;
+    left: 30px;
+  }
+  .app .content_container .line .line-therd {
+    top: 137px;
+    width: 5px;
+    height: 5px;
+    left: 0px;
+  }
+  .app .content_container .line .line-first {
+    width: 3px;
+    height: 3px;
+    top: -1px;
+    left: 1px;
+  }
+  .app .content_container .line .line-second {
+    width: 1px;
+  }
+  .app .content_container span {
+    font-size: 8px;
+    left: 45px;
+    top: 50px;
+  }
+  .app .content_container .hed header {
+    max-width: 300px;
+
+    left: 30px;
+  }
+  .app .content_container .hed header img {
+    max-width: 15px;
+  }
+  .app .content_container .hed header .menu {
+    max-width: 250px;
+  }
+  .app .content_container .hed header ul {
+    max-width: 180px;
+  }
+  .app .content_container .hed header ul li a {
+    font-size: 5px;
+    font-weight: 300;
+  }
+  .app .content_container .hed header button {
+    font-size: 5px;
+    max-width: 50px;
+    max-height: 20px;
+    font-weight: 300;
+  }
 }
 
 @keyframes bg {
@@ -123,24 +318,25 @@ h2 {
   10% {
     opacity: 0.4;
   }
+  90% {
+    background-position: right;
+    opacity: 0.3;
+  }
   100% {
     background-position: right;
+    opacity: 0;
   }
 }
-.first-part {
+.line {
   position: absolute;
-  width: 50%;
-  height: 100%;
-}
-.first-part:hover body {
-  background: red;
+  top: 191px;
+  left: 118px;
+  height: 597px;
 }
 .line-first {
   position: absolute;
   width: 6px;
   height: 6px;
-  top: 191px;
-  left: 118px;
   border-radius: 50%;
   background-color: white;
   z-index: 1;
@@ -148,9 +344,7 @@ h2 {
 .line-second {
   position: absolute;
   width: 2px;
-  height: 597px;
-  top: 194px;
-  left: 120px;
+  left: 2px;
   background-color: white;
   z-index: 1;
   animation-name: progressline;
@@ -171,15 +365,16 @@ h2 {
     height: 0;
   }
   100% {
-    height: 597px;
+    height: 100%;
   }
 }
+
 .line-therd {
   position: absolute;
   width: 10px;
   height: 10px;
-  top: 786px;
-  left: 116px;
+  top: 594px;
+  left: -2px;
   border-radius: 50%;
   background-color: white;
   z-index: 1;
@@ -189,15 +384,20 @@ h2 {
   animation-delay: 1s;
   animation-fill-mode: forwards;
 }
+.hed {
+  position: relative;
+  max-width: 1200px;
+  height: 100%;
+}
 header {
   position: absolute;
   display: flex;
   align-items: center;
-
-  width: 1200px;
+  top: 30px;
+  left: 120px;
+  width: 100%;
   max-height: 40px;
-  margin-top: 31px;
-  margin-left: 120px;
+
   justify-content: space-between;
 }
 .menu {
@@ -215,8 +415,11 @@ nav ul {
   padding: 0;
   justify-content: space-between;
 }
+a:hover {
+  color: black;
+}
 nav ul li a {
-  display: inline-block;
+  display: flex;
   font-family: "Montserrat";
   font-size: 16px;
   font-weight: 500;
@@ -231,8 +434,8 @@ nav ul li a:hover {
 }
 span {
   position: absolute;
-  width: 435px;
-  height: 44px;
+  max-width: 435px;
+  max-height: 44px;
   top: 201px;
   left: 151px;
   font-family: "Montserrat";
@@ -256,13 +459,19 @@ span {
   }
   100% {
     opacity: 1;
-    mix-blend-mode: normal;
+  }
+}
+@keyframes mainText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 button {
   width: 179px;
   height: 40px;
-  padding: 10px, 15px, 10px, 15px;
   border-radius: 4px;
   font-family: "Montserrat";
   font-size: 16px;
@@ -272,10 +481,6 @@ button {
 nav a {
   text-decoration: none;
   color: #333;
-}
-
-nav a:hover {
-  color: #007bff;
 }
 
 .tickets {
@@ -295,10 +500,11 @@ nav a:hover {
   text-align: left;
 }
 .headeer {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  width: 1198px;
-  height: 228px;
+  max-width: 1198px;
+  max-height: 228px;
 }
 .headeer img {
   max-width: 32px;
@@ -308,14 +514,14 @@ nav a:hover {
   margin-top: 80px;
   display: flex;
   justify-content: space-between;
-  width: 1200px;
-  height: 172px;
+  max-width: 1200px;
+  max-height: 172px;
 }
 .dates_current_button {
   display: flex;
-
   flex-direction: column;
   justify-content: space-between;
+  height: 172px;
 }
 
 .dates_current {
@@ -346,22 +552,19 @@ input {
   padding-bottom: 10px;
 }
 .ticket_container {
-  position: absolute;
+  position: relative;
+  max-width: 1200px;
   top: 100px;
   left: 120px;
 }
-
-.large_container {
-  position: absolute;
-  top: 0;
-  left: 0px;
-  width: 100vw;
-  height: 100vh;
+.ticket_app {
   background: #f2e1c2;
+
+  height: 100%;
+  width: 100%;
 }
 .buy_button {
   display: flex;
-  width: 387px;
   text-align: center;
 }
 .buy_button button {
@@ -369,4 +572,146 @@ input {
   width: 387px;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 1400px) {
+  .ticket_container {
+    top: 90px;
+    left: 100px;
+    max-width: 900px;
+  }
+  .ticket_app .ticket_container .headeer .tickets h1 {
+    font-size: 90px;
+    line-height: 90px;
+  }
+  .ticket_app .ticket_container .dates .dates_current_button .buy_button {
+    width: 250px;
+  }
+  .ticket_app .ticket_container .dates .dates_current_button {
+    width: 250px;
+    height: 140px;
+  }
+  .ticket_app .ticket_container .dates .dates_current {
+    width: 250px;
+  }
+}
+
+@media (max-width: 1060px) {
+  .ticket_container {
+    top: 70px;
+    left: 80px;
+    max-width: 700px;
+  }
+  .ticket_app .ticket_container .headeer .tickets h1 {
+    font-size: 75px;
+    line-height: 75px;
+  }
+  .ticket_app .ticket_container .dates .dates_current_button .buy_button {
+    width: 200px;
+  }
+  .ticket_app .ticket_container .dates .dates_current_button {
+    width: 200px;
+    height: 120px;
+  }
+  .ticket_app .ticket_container .dates .dates_current {
+    width: 200px;
+  }
+}
+
+@media (max-width: 800px) {
+  .ticket_container {
+    top: 50px;
+    left: 60px;
+    max-width: 600px;
+  }
+  .ticket_app .ticket_container .headeer {
+    max-width: 600px;
+  }
+  .ticket_app .ticket_container .headeer .tickets h1 {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .ticket_app .ticket_container .dates .dates_current_button .buy_button {
+    width: 150px;
+  }
+  .ticket_app .ticket_container .dates .dates_current_button {
+    width: 150px;
+    height: 100px;
+  }
+  .ticket_app .ticket_container .dates .dates_current {
+    width: 150px;
+  }
+  .ticket_app .ticket_container .dates .dates_current label {
+    font-size: 12px;
+  }
+  .ticket_app .ticket_container .dates .dates_current label {
+    font-size: 12px;
+  }
+  .ticket_app .ticket_container .dates .dates_current input {
+    font-size: 12px;
+  }
+  .ticket_app
+    .ticket_container
+    .dates
+    .dates_current_button
+    .buy_button
+    button {
+    height: 20px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 680px) {
+  .ticket_container {
+    position: relative;
+
+    max-width: 400px;
+  }
+  .ticket_app .ticket_container .headeer {
+    max-width: 600px;
+  }
+  .ticket_app .ticket_container .headeer .tickets h1 {
+    font-size: 35px;
+    line-height: 35px;
+  }
+  .ticket_app .ticket_container .headeer img {
+    max-width: 15px;
+    max-height: 15px;
+  }
+  .ticket_app .ticket_container .dates {
+    flex-direction: column;
+  }
+  .ticket_app .ticket_container .dates .dates_current_button .buy_button {
+    width: 60%;
+    padding-top: 10px;
+  }
+  .ticket_app .ticket_container .dates .dates_current_button {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .ticket_app .ticket_container .dates .dates_current {
+    width: 100%;
+    align-items: center;
+  }
+  .ticket_app .ticket_container .dates .dates_current label {
+    font-size: 12px;
+  }
+  .ticket_app .ticket_container .dates .dates_current label {
+    font-size: 12px;
+  }
+  .ticket_app .ticket_container .dates .dates_current input {
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+  }
+  .ticket_app
+    .ticket_container
+    .dates
+    .dates_current_button
+    .buy_button
+    button {
+    height: 20px;
+    font-size: 12px;
+  }
 }
